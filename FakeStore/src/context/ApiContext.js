@@ -27,12 +27,11 @@ export const ApiProvider = ({ children }) => {
     //Ürlap küldés
     const postAdat = async (vegpont, adat) => {
         try {
-            const response = await myAxios.post(vegpont,adat); // HTTP POST kérés az API végpontra
-            console.log(response)
+            // Az URL megfelelő megadása, például "/products"
+            const response = await myAxios.post(vegpont, adat); 
+            console.log(response); // Válasz megjelenítése
         } catch (err) {
-            console.log("Hiba történt az adatok küldésekor"); // Hibakezelés
-        } finally {
-            // A végrehajtás után lefutó kód (ha szükséges)
+            console.log("Hiba történt az adatok küldésekor", err); // Hibakezelés
         }
     };
 
@@ -40,14 +39,14 @@ export const ApiProvider = ({ children }) => {
     /* Aszinkron hívások kezelése useEffect hook segítségével, másrészt ha azt akarjuk hogy egy fvg. van egy 
     utasitás sorozat lefusson ha egy változó értéke megváltozik*/
     useEffect(() => {
-        getAdat("/products"); // Az adatok lekérése a komponens első renderelésekor
+        getAdat("/products", setTermekLista); // Az adatok lekérése a komponens első renderelésekor
         //ide nem kell a post!!
-        getAdat("/category, setKattLista")
+        getAdat("/products/categories", setKattLista)
     }, []); // Üres dependency lista, tehát csak egyszer fut le
 
     // Visszatérünk a Provider elemmel, amely a termekLista-t osztja meg a children komponensekkel
     return (
-        <ApiContext.Provider value={{ termekLista }}>
+        <ApiContext.Provider value={{ termekLista ,kattLista, postAdat  }}>
             {children}
         </ApiContext.Provider>
     );

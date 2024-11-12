@@ -1,11 +1,8 @@
 import { useContext } from "react";
-import Kosar from "./components/Kosar";
 import { ApiContext } from "./context/ApiContext";
-import Vasaroter from "./components/Vasaroter";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { KosarContext } from "./context/KosarContext";
-import Urlap from "./components/Urlap";
+import Public from "./pages/Public";
 
 function App() {
   const { termekLista } = useContext(ApiContext);
@@ -16,7 +13,7 @@ function App() {
       <header className="App-header">
         <h1>FakeStore webáruház</h1>
       </header>
-      <Urlap/>
+      <Public></Public>
     </div>
   );
 }

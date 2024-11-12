@@ -5,15 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css"
 import { ApiProvider } from './context/ApiContext';
-import { KosarContext } from './context/KosarContext';
+import { KosarContext, KosarProvider } from './context/KosarContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ApiProvider>
-     
+      <KosarProvider>
         <App />
-    
+      </KosarProvider>
     </ApiProvider>
   </React.StrictMode>
 

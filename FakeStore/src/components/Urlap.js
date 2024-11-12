@@ -29,18 +29,17 @@ export default function Urlap() {
         console.log("elküld", adat);
         // Itt lehetne validálni az adatokat, és csak akkor elküldeni, ha formailag helyesek
         //adatKüldés
-        postAdat("/products, adat")//végpont és adat átadása amit az ApiContexbe hoztunk létre
+        postAdat("/products", adat)//végpont és adat átadása amit az ApiContexbe hoztunk létre
     }
 
     return (
         <div>
             <form onSubmit={elkuld}>
-
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">A termék neve</label>
                     <input
                         type="text"
-                        pattern=''
+
                         value={adat.title}
                         onChange={valtozotatasKezeles}
                         className="form-control"
@@ -74,7 +73,19 @@ export default function Urlap() {
                     />
                 </div>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+
+            
+            <form action="/action_page.php">
+                <label for="cars">Choose a car:</label>
+                <select id="cars" name="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <input type="submit" />
             </form>
         </div>
     );

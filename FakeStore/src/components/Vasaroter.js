@@ -5,13 +5,10 @@ function Vasaroter(props) {
     /*itt végig map-elünk a termékListán*/
     return (
         <div className='row'>
-          {props.lista.map((termek) => (
+          {props.lista.map((termek, index) => (
             <Termek
-              key={termek.id} 
-              title={termek.title}
-              description={termek.description}
-              image={termek.image}
-              price={termek.price}
+              key={index} 
+              termek={termek}
             />
           ))}
         </div>

@@ -2,9 +2,11 @@ import React, { useContext } from 'react'
 import { ApiContext } from '../context/ApiContext'
 import Vasaroter from '../components/Vasaroter'
 import Kosar from '../components/Kosar'
+import { KosarContext, KosarProvider } from '../context/KosarContext'
 
 
 export default function Public() {
+  const {termekLista}=useContext(ApiContext)
   return (
     <div>
       <main className="row">
